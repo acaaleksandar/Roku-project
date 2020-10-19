@@ -4,17 +4,19 @@
     <script type="text/brightscript" uri="pkg:/source/utils/utilityFunctions.brs" />
     <children>       
         <Rectangle id="rect" color = "0x00000099">
-            <Label id="name" horizAlign="left" vertAlign="top" wrap = "true" />
+            <Label id="name" horizAlign="left" vertAlign="top" wrap="true" />
             <Poster id="myPoster" />
         </Rectangle>
         <!-- <Poster id="myPoster" /> -->
 
-        <ButtonGroup id="firstButtonGroup" translation="[100,700]">
+        <Video id="myFirstVideo" width="1280" height="720" translation="[0,350]" />
+
+        <ButtonGroup id="firstButtonGroup" translation="[1100,100]">
             <Button id="firstBtn" text="first_button"/>
             <Button id="secondBtn" text="second_button"/>
         </ButtonGroup>
 
-        <ButtonGroup id="secondButtonGroup" translation="[500,700]">
+        <ButtonGroup id="secondButtonGroup" translation="[1500,100]">
             <Button id="thirdBtn" text="third_button"/>
             <Button id="fourthBtn" text="fourth_button"/>
         </ButtonGroup>

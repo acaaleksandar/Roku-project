@@ -16,6 +16,7 @@ sub showChannelSGScreen()
 
     while(true)
         msg = wait(0, m.port)
+        ' msg = port.WaitMessage(timeout)
         msgType = type(msg)
         if msgType = "roSGScreenEvent"
             if msg.isScreenClosed() then return
