@@ -7,6 +7,7 @@
     <!--	<label id="myLabel" text="Hello World!!!" translation="[500, 350]" />  -->
         <ServiceComponent id="ServiceComponent" />
         <CustomComponent id="CustomComponent" />
+        <ButtonComponent id="ButtonComponent" />
     </children>
 </component>
 

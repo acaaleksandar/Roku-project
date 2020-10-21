@@ -1,0 +1,20 @@
+<component name="ButtonComponent" extends="group">
+    <interface>
+        <function name="myRanFun" />
+    </interface>
+    <script type="text/brightscript" uri="pkg:/components/ButtonComponent.brs" />
+    <children>
+        <Video id="myFirstVideo" width="1280" height="720" translation="[0,350]" visible="false" />
+        <Poster id="newPoster" uri="pkg:/images/MainMenu_Icon_Center_HD.png" width="1280" height="720" translation="[0,350]" visible="false" />
+
+        <ButtonGroup id="firstButtonGroup" translation="[1100,100]">
+            <Button id="firstBtn" text="find_video" textColor="#6f1ab1" focusedTextColor="#ff596a" focusedIconUri="" iconUri="" />
+            <Button id="secondBtn" text="find_poster" textColor="#6f1ab1" focusedTextColor="#ff596a" focusedIconUri="" iconUri="" />
+        </ButtonGroup>
+
+        <ButtonGroup id="secondButtonGroup" translation="[1500,100]" visible="false">
+            <Button id="thirdBtn" text="video_pause" textColor="#6f1ab1" focusedTextColor="#ff596a" focusedIconUri="" iconUri="" />
+            <Button id="fourthBtn" text="video_play" textColor="#6f1ab1" focusedTextColor="#ff596a" focusedIconUri="" iconUri="" />
+        </ButtonGroup>
+    </children>
+</component>

@@ -1,9 +1,8 @@
 ' ********** Copyright 2016 Roku Corp.  All Rights Reserved. **********  
 
 sub init()    
-    ' m.myLabel = m.top.findNode("myLabel")
-    'm.top.backgroundURI = ""
-    'm.top.backgroundColor = "#008b8b"
+    m.top.backgroundURI = ""
+    m.top.backgroundColor = "#f9f9f9"
     
     m.top.SetFocus(true)
     m.customComponent = m.top.findNode("CustomComponent")
@@ -11,7 +10,8 @@ sub init()
 
     m.global.addFields({
         "CustomComponent": m.customComponent,
-        "ServiceComponent": m.serviceComponent 
+        "ServiceComponent": m.serviceComponent,
+        "MainScene": m.top
     })
 End sub
 

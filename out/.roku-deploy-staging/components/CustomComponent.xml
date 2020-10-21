@@ -1,29 +1,14 @@
 <component name="CustomComponent" extends="group">
     <interface>
         <field id="labelText" type="string" alias="name.text" onChange="onLabelTextChange" alwaysNotify="true" />
-        <!-- <function name="myFun" /> -->
     </interface>
     <script type="text/brightscript" uri="pkg:/components/CustomComponent.brs" />
     <script type="text/brightscript" uri="pkg:/source/utils/utilityFunctions.brs" />
     <children>       
-        <Rectangle id="rect" color = "0x00000099">
-            <Label id="name" horizAlign="left" vertAlign="top" wrap="true" />
+        <Rectangle id="rect" color="#0b0b0b">
+            <Label id="name" horizAlign="left" vertAlign="top" wrap="true" color="#ff0000" />
             <Poster id="myPoster" />
         </Rectangle>
-        <!-- <Poster id="myPoster" /> -->
-
-        <Video id="myFirstVideo" width="1280" height="720" translation="[0,350]" visible="false" />
-        <Poster id="newPoster" uri="pkg:/images/MainMenu_Icon_Center_HD.png" width="1280" height="720" translation="[0,350]" visible="false" />
-
-        <ButtonGroup id="firstButtonGroup" translation="[1100,100]">
-            <Button id="firstBtn" text="find_video"/>
-            <Button id="secondBtn" text="find_poster"/>
-        </ButtonGroup>
-
-        <ButtonGroup id="secondButtonGroup" translation="[1500,100]" visible="false">
-            <Button id="thirdBtn" text="video_pause"/>
-            <Button id="fourthBtn" text="video_play"/>
-        </ButtonGroup>
     </children>
     
 </component>

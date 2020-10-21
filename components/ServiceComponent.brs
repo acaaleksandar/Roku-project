@@ -1,5 +1,5 @@
 sub init()    
-   
+   print "Service"
 End sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
