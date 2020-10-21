@@ -5,7 +5,8 @@
     <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
     <children>
     <!--	<label id="myLabel" text="Hello World!!!" translation="[500, 350]" />  -->
-        <CustomComponent />
+        <ServiceComponent id="ServiceComponent" />
+        <CustomComponent id="CustomComponent" />
     </children>
 </component>
 

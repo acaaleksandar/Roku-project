@@ -5,24 +5,17 @@ sub init()
     m.firstButtonGroup = m.top.findNode("firstButtonGroup")
     m.secondButtonGroup = m.top.findNode("secondButtonGroup")
     m.myFirstVideo = m.top.findNode("myFirstVideo")
+    m.newPoster = m.top.findNode("newPoster")
     m.firstButtonGroup.setFocus(true)
-    
-    setVideo()
-
-    m.secondButtonGroup.observeField("buttonSelected","onButtonSelected")
+    m.firstButtonGroup.observeField("buttonSelected","onButtonSelected")
+    m.secondButtonGroup.observeField("buttonSelected","onButtonVideoSelected")
 
     m.rect.width = 1000
     m.rect.height = 350
     m.rect.translation = [0,0]
-
     m.name.text = firstLetterToUppercase("hello World, A SceneGraph application consists of one or more custom SceneGraph components defined in XML files.")
     m.name.width = 500
     m.name.height = 350
-    'm.name.translation = [15,15]
-
-    ' m.name.text = "hello World"
-    ' m.name.text = firstLetterToUppercase(m.name.text)
-
     m.poster.uri = "pkg:/images/icon_focus_hd.png"
     m.poster.width = 500
     m.poster.height = 350
@@ -38,11 +31,29 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     return true 
 end function
 
-sub onButtonSelected()
+sub onButtonVideoSelected()
     if m.secondButtonGroup.buttonSelected = 0 then
-        print "klik na trece dugme"
+        m.myFirstVideo.control = "pause"
+        m.name.text = "Video is stopped"
     else if m.secondButtonGroup.buttonSelected = 1 then
-        print "klik na cetvrto dugme"
+        m.name.text = "Video is resumed"
+        m.myFirstVideo.control = "resume"
+    end if
+end sub
+
+sub onButtonSelected()
+    if m.firstButtonGroup.buttonSelected = 0 then
+        m.name.text = "New video!!!"
+        m.newPoster.visible = false
+        setVideo()
+        m.myFirstVideo.visible = true
+        m.secondButtonGroup.visible = true
+    else if m.firstButtonGroup.buttonSelected = 1 then
+        m.secondButtonGroup.visible = false
+        m.myFirstVideo.visible = false
+        m.newPoster.visible = true
+        m.name.text = "New poster!!!"
+        m.global.ServiceComponent.callFunc("myRanFun")
     end if
 end sub
 
@@ -54,4 +65,8 @@ sub setVideo() as void
 
     m.myFirstVideo.content = videoContent
     m.myFirstVideo.control = "play"
+end sub
+
+sub onLabelTextChange()
+    print "label text changed"
 end sub

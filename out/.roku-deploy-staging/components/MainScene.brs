@@ -6,6 +6,13 @@ sub init()
     'm.top.backgroundColor = "#008b8b"
     
     m.top.SetFocus(true)
+    m.customComponent = m.top.findNode("CustomComponent")
+    m.serviceComponent = m.top.findNode("ServiceComponent")
+
+    m.global.addFields({
+        "CustomComponent": m.customComponent,
+        "ServiceComponent": m.serviceComponent 
+    })
 End sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
