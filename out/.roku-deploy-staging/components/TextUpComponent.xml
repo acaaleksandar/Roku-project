@@ -1,0 +1,26 @@
+<component name="TextUpComponent" extends="group">
+    <interface>
+        <field id="content" type="node" onChange="reciveContant" alwaysNotify="true" />
+    </interface>
+    <script type="text/brightscript" uri="pkg:/components/TextUpComponent.brs" />
+    <children> 
+        <Label id="upBoldText" font="font:MediumBoldSystemFont" text="My Roku Channel" color="#f9f9f9" translation="[60,40]" horizAlign="left" vertAlign="top" wrap="true" width="500" />
+        <Label id="title" font="font:LargeBoldSystemFont" color="#f9f9f9" translation = "[60,70]" width="500" wrap="true" />
+        <LayoutGroup layoutDirection="horiz" horizAlignment="left" translation="[60,140]">
+            <Label id="yearLabel" text="1998 | " color="#fffaed" />
+            <Label id="parentsWarned" text="PG-13 | " color="#fffaed" />
+            <Label id="durationLabel" text="2h 00m | " color="#fffaed"/>
+            <Label id="genreAdventure" color="#942dbd" />
+            <Label id="separator1" text=" | " color="#fffaed" />
+            <Label id="genreDramas" color="#942dbd" />
+            <Label id="separator2" text=" | " color="#fffaed" />
+            <Label id="genreAction" color="#942dbd" />
+        </LayoutGroup>
+        <Label id="descriptionId" font="font:MediumBoldSystemFont" color="#f9f9f9" translation="[60,180]" wrap="true" width="800" />
+        <Label id="actorsId" font="font:MediumBoldSystemFont" color="#942dbd" translation="[60,270]" wrap="true" width="800" />
+        <LayoutGroup layoutDirection="horiz" horizAlignment="left" translation="[60,300]">
+            <Label id="directors" font="font:MediumBoldSystemFont" text="Directed By: " color="#fffaed" />
+            <Label id="directorId" font="font:MediumBoldSystemFont" color="#942dbd" wrap="true" width="800" />
+        </LayoutGroup>
+    </children>
+</component>

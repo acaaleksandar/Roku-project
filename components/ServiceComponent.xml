@@ -1,6 +1,6 @@
 <component name="ServiceComponent" extends="group">
     <interface>
-        <function name="myRanFun" />
+        <function name="myContent" />
     </interface>
     <script type="text/brightscript" uri="pkg:/components/ServiceComponent.brs" />
     <children></children>

@@ -1,20 +1,19 @@
 <component name="ButtonComponent" extends="group">
     <interface>
-        <function name="myRanFun" />
+        <function name="pauseButton" />
+        <function name="playButton" />
+        <function name="replayButton" />
     </interface>
     <script type="text/brightscript" uri="pkg:/components/ButtonComponent.brs" />
     <children>
-        <Video id="myFirstVideo" width="1280" height="720" translation="[0,350]" visible="false" />
-        <Poster id="newPoster" uri="pkg:/images/MainMenu_Icon_Center_HD.png" width="1280" height="720" translation="[0,350]" visible="false" />
-
-        <ButtonGroup id="firstButtonGroup" translation="[1100,100]">
-            <Button id="firstBtn" text="find_video" textColor="#6f1ab1" focusedTextColor="#ff596a" focusedIconUri="" iconUri="" />
-            <Button id="secondBtn" text="find_poster" textColor="#6f1ab1" focusedTextColor="#ff596a" focusedIconUri="" iconUri="" />
-        </ButtonGroup>
-
-        <ButtonGroup id="secondButtonGroup" translation="[1500,100]" visible="false">
-            <Button id="thirdBtn" text="video_pause" textColor="#6f1ab1" focusedTextColor="#ff596a" focusedIconUri="" iconUri="" />
-            <Button id="fourthBtn" text="video_play" textColor="#6f1ab1" focusedTextColor="#ff596a" focusedIconUri="" iconUri="" />
+        <Poster id="backgroundImage" width="390" height="97" uri="pkg:/images/unfocusedButton.png" translation="[490,400]" />
+        <ButtonGroup id="firstButtonGroup" translation="[60,400]" visible="true" layoutDirection="horiz" buttonHeight="50" focusedTextFont="20" maxWidth="200" itemSpacings="50">
+            <Button id="firstBtn" focusedIconUri="" iconUri="" showFocusFootprint = "true">
+                <Label id="buttonPlay" text="Play" color="#fdf7f7" horizAlign="left" translation="[150,35]"  />
+            </Button>
+            <Button id="secondBtn" focusedIconUri="" iconUri="" showFocusFootprint = "true">
+                <Label id="fullScreen" text="Go To Full Screen" color="#fdf7f7" horizAlign="left" translation="[80,35]"  />
+            </Button>
         </ButtonGroup>
     </children>
 </component>

@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-
 <component name="MainScene" extends="Scene" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
     <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
     <children>
-    <!--	<label id="myLabel" text="Hello World!!!" translation="[500, 350]" />  -->
-        <ServiceComponent id="ServiceComponent" />
-        <CustomComponent id="CustomComponent" />
+        <BackgroundComponent id="BackgroundComponent" />
         <ButtonComponent id="ButtonComponent" />
+        <TextUpComponent id="TextUpComponent" />
+        <TextDownComponent id="TextDownComponent" />
+        <VideoComponent id="VideoComponent" />
+        <ServiceComponent id="ServiceComponent" />
     </children>
 </component>
 

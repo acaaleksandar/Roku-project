@@ -1,58 +1,54 @@
 sub init()    
     m.firstButtonGroup = m.top.findNode("firstButtonGroup")
-    m.secondButtonGroup = m.top.findNode("secondButtonGroup")
-    m.myFirstVideo = m.top.findNode("myFirstVideo")
-    m.newPoster = m.top.findNode("newPoster")
+    m.firstBtn = m.top.findNode("firstBtn")
+    m.secondBtn = m.top.findNode("secondBtn")
+    m.backgroundImage = m.top.findNode("backgroundImage")
+    m.buttonPlay = m.top.findNode("buttonPlay")
+    m.fullScreen = m.top.findNode("fullScreen")
     m.firstButtonGroup.setFocus(true)
     m.firstButtonGroup.observeField("buttonSelected","onButtonSelected")
-    m.secondButtonGroup.observeField("buttonSelected","onButtonVideoSelected")
-End sub
-    
 
+    m.firstButtonGroup.focusBitmapUri = "pkg:/images/button.png"
+    m.firstButtonGroup.focusFootprintBitmapUri = "pkg:/images/button.png"
+    m.firstButtonGroup.textColor = "#fdf7f7"
+    m.firstButtonGroup.focusedTextColor = "#fdf7f7"
+    m.firstBtn.iconUri = "pkg:/images/pleja.png"
+    m.firstBtn.focusedIconUri = "pkg:/images/pleja.png"    
+    m.buttonPlay.font.size = 30
+    m.fullScreen.font.size = 30
+End sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean   
     if key = "right" and press then    
-        m.secondButtonGroup.setFocus(true)
+        m.firstBtn.showFocusFootprint = true
+        m.firstBtn.focusFootprintBitmapUri = "pkg:/images/unfocusedButton.png"
+        m.secondBtn.setFocus(true)
+        m.backgroundImage.translation=[60,400]
     else if key = "left" and press then
-        m.firstButtonGroup.setFocus(true)
+        m.firstBtn.setFocus(true)
+        m.backgroundImage.translation=[490,400]
+    else if key = "back" and press then
+        m.global.VideoComponent.callFunc("revertScreen")
     end if
     return true 
 end function
 
-sub onButtonVideoSelected()
-    if m.secondButtonGroup.buttonSelected = 0 then
-        m.myFirstVideo.control = "pause"
-        m.global.CustomComponent.labelText = "Video is stopped"
-    else if m.secondButtonGroup.buttonSelected = 1 then
-        m.global.CustomComponent.labelText = "Video is resumed"
-        m.myFirstVideo.control = "resume"
-    end if
-end sub
-
 sub onButtonSelected()
     if m.firstButtonGroup.buttonSelected = 0 then
-        m.global.CustomComponent.labelText = "New video!!!"
-        m.newPoster.visible = false
-        m.global.MainScene.backgroundColor = "#0b0b0b"
-        setVideo()
-        m.myFirstVideo.visible = true
-        m.secondButtonGroup.visible = true
+        m.global.VideoComponent.callFunc("setVideo")
     else if m.firstButtonGroup.buttonSelected = 1 then
-        m.secondButtonGroup.visible = false
-        m.myFirstVideo.visible = false
-        m.newPoster.visible = true
-        m.global.CustomComponent.labelText = "New poster!!!"
-        m.global.ServiceComponent.callFunc("myRanFun")
-        m.global.MainScene.backgroundColor = "#f9f9f9"
+        m.global.VideoComponent.callFunc("fullScreen")
     end if
 end sub
 
-sub setVideo() as void
-    videoContent = createObject("RoSGNode", "ContentNode")
-    videoContent.url = "https://roku.s.cpl.delvenetworks.com/media/59021fabe3b645968e382ac726cd6c7b/60b4a471ffb74809beb2f7d5a15b3193/roku_ep_111_segment_1_final-cc_mix_033015-a7ec8a288c4bcec001c118181c668de321108861.m3u8"
-    videoContent.title = "Test Video"
-    videoContent.streamformat = "hls"
+sub pauseButton()
+    m.buttonPlay.text = "Pause"
+end sub
 
-    m.myFirstVideo.content = videoContent
-    m.myFirstVideo.control = "play"
+sub playButton()
+    m.buttonPlay.text = "Play"
+end sub
+
+sub replayButton()
+    m.buttonPlay.text = "Replay"
 end sub

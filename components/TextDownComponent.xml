@@ -1,0 +1,18 @@
+<component name="TextDownComponent" extends="group">
+    <interface>
+        <field id="content" type="node" onChange="listOfNames" alwaysNotify="true" />
+    </interface>
+    <script type="text/brightscript" uri="pkg:/components/TextDownComponent.brs" />
+    <children> 
+        <Label id="downBoldText" font="font:MediumBoldSystemFont" text="DETAILS" color="#f9f9f9" translation="[60,650]" />
+        <Rectangle id="textWraper">
+            <Label id="downLeftText" text="Troubled people attemp to mend their lives as thes brace themselves for a comet that thretens Earth." color="#fffaed" translation = "[60,700]" width="500" wrap="true" />
+            <Label id="castLabel" text="Cast: " color="#fffaed" translation="[600,700]"/>
+            <Label id="actorsName" color="#942dbd" wrap="true" width="500" translation="[600,700]" />
+            <Label id="genresId" text="Genres: " color="#fffaed" translation="[600,880]" />
+            <Label id="genresAv" color="#942dbd" translation="[680,880]" wrap="true" width="555" />
+            <Label id="directorsId" text="Directors: " color="#fffaed" translation="[600,935]" />
+            <Label id="directorsName" color="#942dbd" translation="[700,935]" wrap="true" width="555" />
+        </Rectangle>
+    </children>
+</component>
