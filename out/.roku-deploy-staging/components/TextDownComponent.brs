@@ -28,13 +28,20 @@ sub listOfNames(event)
     node = event.getData()
     m.downLeftText.text = node.Description
     m.directorsName.text = node.Directors
-    m.genresAv.text = node.Categories[0] + ", " + node.Categories[1] + ", " + node.Categories[2] + ", " + node.Categories[3]
+    
+    for a = 0 to node.Categories.count() - 1
+        if a = 0 then
+            m.genresAv.text = node.Categories[a]
+        else
+            m.genresAv.text += ", " + node.Categories[a]
+        end if        
+    end for
  
     for i = 0 to node.Actors.count() - 1
         if i = 0 then
             m.actorsName.text = "         " + node.Actors[i]
         else  
-            m.actorsName.text = m.actorsName.text + ", " + node.Actors[i]
+            m.actorsName.text += ", " + node.Actors[i]
         end if
     end for
 end sub
