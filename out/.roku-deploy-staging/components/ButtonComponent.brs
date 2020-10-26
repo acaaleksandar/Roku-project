@@ -13,7 +13,9 @@ sub init()
     m.firstButtonGroup.textColor = "#fdf7f7"
     m.firstButtonGroup.focusedTextColor = "#fdf7f7"
     m.firstBtn.iconUri = "pkg:/images/pleja.png"
-    m.firstBtn.focusedIconUri = "pkg:/images/pleja.png"    
+    m.firstBtn.focusedIconUri = "pkg:/images/pleja.png"
+    m.secondBtn.iconUri = "pkg:/images/unFocusedfullScreen.png"
+    m.secondBtn.focusedIconUri = "pkg:/images/focusedfullScreen.png"    
     m.buttonPlay.font.size = 30
     m.fullScreen.font.size = 30
 End sub
