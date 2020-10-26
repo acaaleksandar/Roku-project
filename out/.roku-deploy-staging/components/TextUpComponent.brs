@@ -36,7 +36,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     return result
 end function
 
-sub reciveContant(event)
+sub receiveContent(event)
     node = event.getData()
     m.descriptionId.text = node.Description
     m.title.text = node.Title

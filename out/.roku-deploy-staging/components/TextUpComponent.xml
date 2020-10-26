@@ -1,6 +1,6 @@
 <component name="TextUpComponent" extends="group">
     <interface>
-        <field id="content" type="node" onChange="reciveContant" alwaysNotify="true" />
+        <field id="content" type="node" onChange="receiveContent" alwaysNotify="true" />
     </interface>
     <script type="text/brightscript" uri="pkg:/components/TextUpComponent.brs" />
     <children> 

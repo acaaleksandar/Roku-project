@@ -1,6 +1,6 @@
 <component name="TextDownComponent" extends="group">
     <interface>
-        <field id="content" type="node" onChange="listOfNames" alwaysNotify="true" />
+        <field id="content" type="node" onChange="receiveContent" alwaysNotify="true" />
     </interface>
     <script type="text/brightscript" uri="pkg:/components/TextDownComponent.brs" />
     <children> 

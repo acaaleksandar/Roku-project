@@ -24,7 +24,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     return result
 end function
 
-sub listOfNames(event)
+sub receiveContent(event)
     node = event.getData()
     m.downLeftText.text = node.Description
     m.directorsName.text = node.Directors
