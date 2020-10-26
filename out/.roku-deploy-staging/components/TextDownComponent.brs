@@ -26,6 +26,7 @@ end function
 
 sub listOfNames(event)
     node = event.getData()
+    m.downLeftText.text = node.Description
     m.directorsName.text = node.Directors
     m.genresAv.text = node.Categories[0] + ", " + node.Categories[1] + ", " + node.Categories[2] + ", " + node.Categories[3]
  

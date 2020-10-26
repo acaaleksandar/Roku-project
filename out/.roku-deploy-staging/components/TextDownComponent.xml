@@ -6,7 +6,7 @@
     <children> 
         <Label id="downBoldText" font="font:MediumBoldSystemFont" text="DETAILS" color="#f9f9f9" translation="[60,650]" />
         <Rectangle id="textWraper">
-            <Label id="downLeftText" text="Troubled people attemp to mend their lives as thes brace themselves for a comet that thretens Earth." color="#fffaed" translation = "[60,700]" width="500" wrap="true" />
+            <Label id="downLeftText" color="#fffaed" translation = "[60,700]" width="500" wrap="true" />
             <Label id="castLabel" text="Cast: " color="#fffaed" translation="[600,700]"/>
             <Label id="actorsName" color="#942dbd" wrap="true" width="500" translation="[600,700]" />
             <Label id="genresId" text="Genres: " color="#fffaed" translation="[600,880]" />
