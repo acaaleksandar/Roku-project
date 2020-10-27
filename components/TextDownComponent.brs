@@ -7,15 +7,17 @@ sub init()
     m.genresAv = m.top.findNode("genresAv")
     m.directorsId = m.top.findNode("directorsId")
     m.directorsName = m.top.findNode("directorsName")
+    m.textWraper = m.top.findNode("textWraper")
 
-    m.downBoldText.font.size = 25
-    m.downLeftText.font.size = 18
-    m.castLabel.font.size = 18
-    m.actorsName.font.size = 18
-    m.genresId.font.size = 18
-    m.genresAv.font.size = 18
-    m.directorsId.font.size = 18
-    m.directorsName.font.size = 18
+    sizeL = 25
+    sizeS = 18
+
+    m.downBoldText.font.size = sizeL
+
+    for i = 0 to m.textWraper.getChildCount() - 1
+        m.textSize = m.textWraper.getChild(i)
+        m.textSize.font.size = sizeS
+    end for
 End sub
     
 function onKeyEvent(key as String, press as Boolean) as Boolean

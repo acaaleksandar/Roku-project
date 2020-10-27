@@ -29,11 +29,14 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     else if key = "left" and press then
         m.firstBtn.setFocus(true)
         m.backgroundImage.translation=[490,400]
-    else if key = "back" and press then
-        m.global.VideoComponent.callFunc("revertScreen")
     end if
     return true 
 end function
+
+sub focusSecondBtn()
+    m.secondBtn.setFocus(true)
+    m.global.VideoComponent.callFunc("revertScreen")
+end sub
 
 sub onButtonSelected()
     if m.firstButtonGroup.buttonSelected = 0 then
@@ -43,14 +46,13 @@ sub onButtonSelected()
     end if
 end sub
 
-sub pauseButton()
-    m.buttonPlay.text = "Pause"
-end sub
-
-sub playButton()
-    m.buttonPlay.text = "Play"
-end sub
-
-sub replayButton()
-    m.buttonPlay.text = "Replay"
+sub editButtonText()
+    buttonText = m.global.VideoComponent.callFunc("getVideoState")
+    if buttonText = "none" or buttonText = "paused" or buttonText = "finished" and m.firstButtonGroup.buttonSelected = 0 then
+        m.buttonPlay.text = "Pause"
+    else if buttonText = "playing" then
+        m.buttonPlay.text = "Play"
+    else if buttonText = "finished"
+        m.buttonPlay.text = "Replay"
+    end if
 end sub

@@ -3,6 +3,8 @@
         <function name="pauseButton" />
         <function name="playButton" />
         <function name="replayButton" />
+        <function name="focusSecondBtn" />
+        <function name="editButtonText" />
     </interface>
     <script type="text/brightscript" uri="pkg:/components/ButtonComponent.brs" />
     <children>

@@ -3,6 +3,7 @@
         <function name="setVideo" />
         <function name="fullScreen" />
         <function name="revertScreen" />
+        <function name="getVideoState" />
     </interface>
     <script type="text/brightscript" uri="pkg:/components/VideoComponent.brs" />
     <children>

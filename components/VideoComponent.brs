@@ -4,9 +4,10 @@ sub init()
 End sub
     
 function onKeyEvent(key as String, press as Boolean) as Boolean
-    result = false
-    
-    return result 
+    if key = "back" and press then
+        m.global.ButtonComponent.callFunc("focusSecondBtn")
+    end if
+    return true  
 end function
 
 sub setVideo() as void
@@ -17,20 +18,26 @@ sub setVideo() as void
         videoContent.streamformat = "hls"
         m.myVideo.content = videoContent
         m.myVideo.control = "play"
-        m.global.ButtonComponent.callFunc("pauseButton")
+        m.global.ButtonComponent.callFunc("editButtonText")
     else if m.myVideo.state = "playing" then
         m.myVideo.control = "pause"
-        m.global.ButtonComponent.callFunc("playButton")
+        m.global.ButtonComponent.callFunc("editButtonText")
     else if m.myVideo.state = "paused" then
         m.myVideo.control = "resume"
-        m.global.ButtonComponent.callFunc("pauseButton")
+        m.global.ButtonComponent.callFunc("editButtonText")
     else if m.myVideo.state = "finished" then
         m.myVideo.control = "play"
-        m.global.ButtonComponent.callFunc("pauseButton")
+        m.global.ButtonComponent.callFunc("editButtonText")
     end if     
 end sub
 
+function getVideoState()
+    state = m.myVideo.state
+    return state
+end function
+
 sub fullScreen()
+    m.myVideo.setFocus(true)
     m.myVideo.width = 1920
     m.myVideo.height = 1080
     m.myVideo.translation = [0,0]
@@ -44,6 +51,6 @@ end sub
 
 sub isVideoFinish()
     if m.myVideo.state = "finished" then
-        m.global.ButtonComponent.callFunc("replayButton")
+        m.global.ButtonComponent.callFunc("editButtonText")
     end if
 end sub

@@ -13,22 +13,31 @@ sub init()
     m.actorsId = m.top.findNode("actorsId")
     m.directorId = m.top.findNode("directorId")
     m.directors = m.top.findNode("directors")
+    m.movieDetails = m.top.findNode("movieDetails")
+    m.directorLabel = m.top.findNode("directorLabel")
 
-    m.upBoldText.font.size = 25
-    m.title.font.size = 70
-    m.yearLabel.font.size = 20
-    m.durationLabel.font.size = 20
-    m.parentsWarned.font.size = 20
-    m.genreAdventure.font.size = 20
-    m.genreDramas.font.size = 20
-    m.genreAction.font.size = 20
-    m.separator1.font.size = 20
-    m.separator2.font.size = 20
-    m.descriptionId.font.size = 20
-    m.actorsId.font.size = 20
-    m.directorId.font.size = 20
-    m.directors.font.size = 20
+    m.sizeXL = 70
+    m.sizeL = 25
+    m.sizeS = 20
+
+    for i = 0 to m.movieDetails.getChildCount() - 1
+        childrenFont(m.movieDetails, i)
+    end for
+
+    for i = 0 to m.directorLabel.getChildCount() - 1
+        childrenFont(m.directorLabel, i)
+    end for
+
+    m.upBoldText.font.size = m.sizeL
+    m.title.font.size = m.sizeXL
+    m.descriptionId.font.size = m.sizeS
+    m.actorsId.font.size = m.sizeS
 End sub
+
+sub childrenFont(parentComp, i)
+    m.textSize = parentComp.getChild(i)
+    m.textSize.font.size = m.sizeS
+end sub
     
 function onKeyEvent(key as String, press as Boolean) as Boolean
     result = false
