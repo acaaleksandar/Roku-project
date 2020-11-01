@@ -42,8 +42,28 @@ sub onButtonSelected()
     if m.firstButtonGroup.buttonSelected = 0 then
         m.global.VideoComponent.callFunc("setVideo")
     else if m.firstButtonGroup.buttonSelected = 1 then
+        m.getDataTask = CreateObject("roSGNode", "GetDataTask")
+        m.getDataTask.url = "http://dummy.restapiexample.com/api/v1/employees"
+        m.getDataTask.observeField("response", "dataTaskResponse")
+        m.getDataTask.control = "RUN"
+
         m.global.VideoComponent.callFunc("fullScreen")
     end if
+end sub
+
+sub dataTaskResponse(obj)
+    ' print obj.getData()
+
+    ' m.node = obj.getData()
+    ' print m.node
+   
+    ' print parseJson(m.node)
+
+    ' if niz.doesExist("three") then
+    '     for each key in niz.three
+    '         print key
+    '     end for
+    ' end if
 end sub
 
 sub editButtonText()

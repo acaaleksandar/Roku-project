@@ -3,6 +3,7 @@
         <field id="content" type="node" onChange="receiveContent" alwaysNotify="true" />
     </interface>
     <script type="text/brightscript" uri="pkg:/components/TextUpComponent.brs" />
+    <script type="text/brightscript" uri="pkg:/source/utils/utily.brs" />
     <children> 
         <Label id="upBoldText" font="font:MediumBoldSystemFont" text="My Roku Channel" color="#f9f9f9" translation="[60,40]" horizAlign="left" vertAlign="top" wrap="true" width="500" />
         <Label id="title" font="font:LargeBoldSystemFont" color="#f9f9f9" translation = "[60,70]" width="500" wrap="true" />

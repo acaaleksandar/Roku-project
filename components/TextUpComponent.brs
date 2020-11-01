@@ -16,29 +16,19 @@ sub init()
     m.movieDetails = m.top.findNode("movieDetails")
     m.directorLabel = m.top.findNode("directorLabel")
 
-    m.sizeXL = 70
-    m.sizeL = 25
-    m.sizeS = 20
+    sizeXL = 70
+    sizeL = 25
+    sizeS = 20
 
-    for i = 0 to m.movieDetails.getChildCount() - 1
-        childrenFont(m.movieDetails, i)
-    end for
+    setChildrenFont(m.movieDetails, sizeS)
+    setChildrenFont(m.directorLabel, sizeS)
 
-    for i = 0 to m.directorLabel.getChildCount() - 1
-        childrenFont(m.directorLabel, i)
-    end for
-
-    m.upBoldText.font.size = m.sizeL
-    m.title.font.size = m.sizeXL
-    m.descriptionId.font.size = m.sizeS
-    m.actorsId.font.size = m.sizeS
+    m.upBoldText.font.size = sizeL
+    m.title.font.size = sizeXL
+    m.descriptionId.font.size = sizeS
+    m.actorsId.font.size = sizeS
 End sub
-
-sub childrenFont(parentComp, i)
-    m.textSize = parentComp.getChild(i)
-    m.textSize.font.size = m.sizeS
-end sub
-    
+  
 function onKeyEvent(key as String, press as Boolean) as Boolean
     result = false
     
