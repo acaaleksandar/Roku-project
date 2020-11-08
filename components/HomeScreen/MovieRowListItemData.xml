@@ -1,0 +1,7 @@
+<component name="MovieRowListItemData" extends="ContentNode">
+    <interface>
+        <field id="labelText" type="string" />
+        <field id="posterUrl" type="string" />
+        <field id="parentalRating" type="string" />
+    </interface>
+</component>

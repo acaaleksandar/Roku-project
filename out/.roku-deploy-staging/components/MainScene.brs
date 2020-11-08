@@ -1,29 +1,25 @@
 sub init()    
     m.top.backgroundURI = ""
     m.top.backgroundColor = "#0b0b0b"
-    
-    m.top.SetFocus(true)
-    m.backgroundComponent = m.top.findNode("BackgroundComponent")
-    m.serviceComponent = m.top.findNode("ServiceComponent")
-    m.videoComponent = m.top.findNode("VideoComponent")
-    m.buttonComponent = m.top.findNode("ButtonComponent")
-    m.textDownComponent = m.top.findNode("TextDownComponent")
-    m.textUpComponent = m.top.findNode("TextUpComponent")
 
+    m.homeScreen = m.top.findNode("homeScreen")   
+    m.detailScreen = m.top.findNode("detailScreen")
     m.global.addFields({
-        "BackgroundComponent": m.backgroundComponent,
-        "ServiceComponent": m.serviceComponent,
-        "VideoComponent": m.videoComponent,
-        "ButtonComponent": m.buttonComponent,
-        "TextDownComponent": m.textDownComponent,
-        "TextUpComponent": m.textUpComponent
+        "HomeScreen": m.homeScreen,
+        "DetailScreen": m.detailScreen,
+        "MainScene": m.top
     })
+    startingPageContent()
+end sub
 
-    m.global.ServiceComponent.callFunc("myContent")
-End sub
-
-function onKeyEvent(key as String, press as Boolean) as Boolean
-    result = false
-    
-    return result 
+function showScreen(content = invalid)
+    if m.homeScreen.isInFocusChain() then
+        m.homeScreen.visible = false
+        m.detailScreen.visible = true
+        m.detailScreen.content = content
+    else
+        m.homeScreen.visible = true
+        m.detailScreen.visible = false
+        m.homeScreen.getChild(3).SetFocus(true)
+    end if
 end function

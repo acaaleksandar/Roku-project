@@ -1,23 +1,10 @@
-sub init()    
-    
-End sub
+sub startingPageContent()
+    m.getDataTask = CreateObject("roSGNode", "GetDataTask")
+    m.getDataTask.url = "https://api.npoint.io/b096a65d709fbe682348"
+    m.getDataTask.observeField("response", "dataTaskResponse")
+    m.getDataTask.control = "RUN"
+end sub
 
-function onKeyEvent(key as String, press as Boolean) as Boolean
-    result = false
-    
-    return result 
-end function
-
-sub myContent()
-    node = CreateObject("roSGNode", "ContentNode")
-    node.hDPosterUrl = "pkg:/images/venom.jpg"
-    node.Directors = "Mimi Leder"
-    node.Title = "Deep Impact"
-    node.Categories = "Adventure, Dramas, Action, Sci-Fi"
-    node.Categories = ["Adventure", "Drama", "Action", "Sci-Fi"]
-    node.Actors	 = ["Robert Duvall", "Tea Leoni", "Elijah Wood", "Redgrave","Freeman", "Schell", "J Cromwel", "Aleksic", "Laura Innes", "Eldar", "Favreu", "Mary McCornak", "Bair Underwood", "Wentz", "Bruce Weitz", "Brantley", "ONeal Compot", "Kisted", "Denis Crosby", "Aleksandar Veliki"]
-    node.Description = "Troubled people attempt to mend their lives as they brace themselves for a comet that thretens Earth."
-    m.global.TextDownComponent.content = node
-    m.global.BackgroundComponent.content = node
-    m.global.TextUpComponent.content = node
+sub dataTaskResponse(obj)
+    m.global.homeScreen.content = obj.getData()
 end sub

@@ -5,8 +5,9 @@
         <function name="replayButton" />
         <function name="focusSecondBtn" />
         <function name="editButtonText" />
+        <function name="revName" />
     </interface>
-    <script type="text/brightscript" uri="pkg:/components/ButtonComponent.brs" />
+    <script type="text/brightscript" uri="ButtonComponent.brs" />
     <children>
         <Poster id="backgroundImage" width="390" height="97" uri="pkg:/images/unfocusedButton.png" translation="[490,400]" />
         <ButtonGroup id="firstButtonGroup" translation="[60,400]" visible="true" layoutDirection="horiz" buttonHeight="50" focusedTextFont="20" maxWidth="200" itemSpacings="[40]">

@@ -2,7 +2,7 @@
     <interface>
         <field id="content" type="node" onChange="receiveContent" alwaysNotify="true" />
     </interface>
-    <script type="text/brightscript" uri="pkg:/components/TextDownComponent.brs" />
+    <script type="text/brightscript" uri="TextDownComponent.brs" />
     <children> 
         <Label id="downBoldText" font="font:MediumBoldSystemFont" text="DETAILS" color="#f9f9f9" translation="[60,650]" />
         <Rectangle id="textWraper">

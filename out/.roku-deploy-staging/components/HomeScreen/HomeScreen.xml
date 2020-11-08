@@ -1,0 +1,14 @@
+<component name="HomeScreen" extends="Group">
+    <interface>
+        <field id="content" type="node" onChange="receiveContent" alwaysNotify="true" />
+    </interface>
+    <script type="text/brightscript" uri="HomeScreen.brs" />
+
+    <children>
+        <Poster id="backgroundPoster" opacity="0.25" />
+        <Overhang showClock="true" logoUri="#" showOptions="true"/>
+        <StartingPageTextComponent id="startingPageTextComponent" translation="[150, 50]" />
+        <RowList id="contentRowList" itemComponentName="MovieRowListItem" translation="[150, 300]" />
+        <Dialog id="dialogOnBack" title="Warning" message="Do you really want to exit?" optionsDialog="true" messageFont="font:LargeBoldSystemFont" visible="false" />
+    </children>
+</component>

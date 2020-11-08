@@ -1,7 +1,7 @@
 sub init()    
     m.myVideo = m.top.findNode("myVideo")
     m.myVideo.observeField("state","isVideoFinish")
-End sub
+end sub
     
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if key = "back" and press then
@@ -11,21 +11,27 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
 end function
 
 sub setVideo() as void
-    if m.myVideo.state = "none" then
+    if m.myVideo.state = "none" or m.myVideo.state = "stopped" then
+        content = m.top.content
         videoContent = createObject("RoSGNode", "ContentNode")
-        videoContent.url = "http://playertest.longtailvideo.com/adaptive/oceans_aes/oceans_aes.m3u8"
-        videoContent.title = "New Video"
-        videoContent.streamformat = "hls"
+        videoContent.url = content.url
+        videoContent.title = content.title
+        videoContent.streamformat = content.streamformat
         m.myVideo.content = videoContent
         m.myVideo.control = "play"
+        print m.myVideo.state
         m.global.ButtonComponent.callFunc("editButtonText")
+        print "jebem te bas none stopped!!!"
     else if m.myVideo.state = "playing" then
-        m.myVideo.control = "pause"
+        print "jebem te bas playing!!!"
         m.global.ButtonComponent.callFunc("editButtonText")
+        m.myVideo.control = "pause"        
     else if m.myVideo.state = "paused" then
+        print "jebem te bas paused!!!"
         m.myVideo.control = "resume"
         m.global.ButtonComponent.callFunc("editButtonText")
     else if m.myVideo.state = "finished" then
+        print "jebem te bas!!!"
         m.myVideo.control = "play"
         m.global.ButtonComponent.callFunc("editButtonText")
     end if     

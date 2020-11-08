@@ -1,12 +1,12 @@
 <component name="MainScene" extends="Scene" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+    <interface>
+        <function name="showScreen" />
+    </interface>
     <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
+    <script type="text/brightscript" uri="pkg:/components/ServiceComponent.brs" />
     <children>
-        <BackgroundComponent id="BackgroundComponent" />
-        <ButtonComponent id="ButtonComponent" />
-        <TextUpComponent id="TextUpComponent" />
-        <TextDownComponent id="TextDownComponent" />
-        <VideoComponent id="VideoComponent" />
-        <ServiceComponent id="ServiceComponent" />
+        <DetailScreen id="detailScreen" visible="false" />        
+        <HomeScreen id="homeScreen" translation="[0, 0]"/>
     </children>
 </component>
 

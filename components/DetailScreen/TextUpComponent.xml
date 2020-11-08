@@ -2,11 +2,11 @@
     <interface>
         <field id="content" type="node" onChange="receiveContent" alwaysNotify="true" />
     </interface>
-    <script type="text/brightscript" uri="pkg:/components/TextUpComponent.brs" />
+    <script type="text/brightscript" uri="TextUpComponent.brs" />
     <script type="text/brightscript" uri="pkg:/source/utils/utily.brs" />
     <children> 
         <Label id="upBoldText" font="font:MediumBoldSystemFont" text="My Roku Channel" color="#f9f9f9" translation="[60,40]" horizAlign="left" vertAlign="top" wrap="true" width="500" />
-        <Label id="title" font="font:LargeBoldSystemFont" color="#f9f9f9" translation = "[60,70]" width="500" wrap="true" />
+        <Label id="title" font="font:LargeBoldSystemFont" color="#f9f9f9" translation = "[60,70]" width="1500" wrap="true" />
         <LayoutGroup id="movieDetails" layoutDirection="horiz" horizAlignment="left" translation="[60,140]">
             <Label id="yearLabel" text="1998 | " color="#fffaed" />
             <Label id="parentsWarned" text="PG-13 | " color="#fffaed" />

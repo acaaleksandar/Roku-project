@@ -1,7 +1,7 @@
 <component name="GetDataTask" extends="task">
     <interface>
         <field id="url" type="string"/>
-        <field id="response" type="string"/>
+        <field id="response" type="node"/>
     </interface>
     <script type="text/brightscript" uri="GetDataTask.brs"/>
     <children></children>

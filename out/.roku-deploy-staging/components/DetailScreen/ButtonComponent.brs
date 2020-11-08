@@ -5,9 +5,7 @@ sub init()
     m.backgroundImage = m.top.findNode("backgroundImage")
     m.buttonPlay = m.top.findNode("buttonPlay")
     m.fullScreen = m.top.findNode("fullScreen")
-    m.firstButtonGroup.setFocus(true)
     m.firstButtonGroup.observeField("buttonSelected","onButtonSelected")
-
     m.firstButtonGroup.focusBitmapUri = "pkg:/images/button.png"
     m.firstButtonGroup.focusFootprintBitmapUri = "pkg:/images/button.png"
     m.firstButtonGroup.textColor = "#fdf7f7"
@@ -18,7 +16,7 @@ sub init()
     m.secondBtn.focusedIconUri = "pkg:/images/focusedfullScreen.png"    
     m.buttonPlay.font.size = 30
     m.fullScreen.font.size = 30
-End sub
+end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean   
     if key = "right" and press then    
@@ -27,11 +25,19 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         m.secondBtn.setFocus(true)
         m.backgroundImage.translation=[60,400]
     else if key = "left" and press then
-        m.firstBtn.setFocus(true)
-        m.backgroundImage.translation=[490,400]
+        focusFirstdBtn()
+    else if key = "back" and press then
+        focusFirstdBtn()
+        m.global.MainScene.callFunc("showScreen")
+        return false
     end if
     return true 
 end function
+
+sub focusFirstdBtn()
+    m.firstBtn.setFocus(true)
+    m.backgroundImage.translation=[490,400]
+end sub
 
 sub focusSecondBtn()
     m.secondBtn.setFocus(true)
@@ -42,37 +48,22 @@ sub onButtonSelected()
     if m.firstButtonGroup.buttonSelected = 0 then
         m.global.VideoComponent.callFunc("setVideo")
     else if m.firstButtonGroup.buttonSelected = 1 then
-        m.getDataTask = CreateObject("roSGNode", "GetDataTask")
-        m.getDataTask.url = "http://dummy.restapiexample.com/api/v1/employees"
-        m.getDataTask.observeField("response", "dataTaskResponse")
-        m.getDataTask.control = "RUN"
-
         m.global.VideoComponent.callFunc("fullScreen")
     end if
 end sub
 
-sub dataTaskResponse(obj)
-    ' print obj.getData()
-
-    ' m.node = obj.getData()
-    ' print m.node
-   
-    ' print parseJson(m.node)
-
-    ' if niz.doesExist("three") then
-    '     for each key in niz.three
-    '         print key
-    '     end for
-    ' end if
-end sub
-
 sub editButtonText()
     buttonText = m.global.VideoComponent.callFunc("getVideoState")
-    if buttonText = "none" or buttonText = "paused" or buttonText = "finished" and m.firstButtonGroup.buttonSelected = 0 then
+    if (buttonText = "none" or buttonText = "paused" or buttonText = "stopped" or buttonText = "finished") and m.firstButtonGroup.buttonSelected = 0 then
         m.buttonPlay.text = "Pause"
+        print buttonText
     else if buttonText = "playing" then
         m.buttonPlay.text = "Play"
     else if buttonText = "finished"
         m.buttonPlay.text = "Replay"
     end if
+end sub
+
+sub revName()
+    m.buttonPlay.text = "Play"
 end sub

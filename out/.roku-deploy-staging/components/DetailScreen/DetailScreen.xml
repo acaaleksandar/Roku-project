@@ -1,0 +1,15 @@
+<component name="DetailScreen" extends="group">
+    <interface>
+        <field id="content" type="node" onChange="onContentChange" alwaysNotify="true" />
+    </interface>
+    <script type="text/brightscript" uri="DetailScreen.brs" />
+    <children>
+        <Rectangle id="rect" color="#2b2d42" width="1920" height="1000" translation = "[0,0]">
+            <Poster id="myPoster" loadSync="true" />
+        </Rectangle>
+        <ButtonComponent id="buttonComponent" />
+        <TextUpComponent id="textUpComponent" translation="[0,0]" />
+        <TextDownComponent id="textDownComponent" />
+        <VideoComponent id="videoComponent" />       
+    </children>
+</component>

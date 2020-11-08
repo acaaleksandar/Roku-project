@@ -1,11 +1,12 @@
 <component name="VideoComponent" extends="group">
     <interface>
+        <field id="content" type="node" />
         <function name="setVideo" />
         <function name="fullScreen" />
         <function name="revertScreen" />
         <function name="getVideoState" />
     </interface>
-    <script type="text/brightscript" uri="pkg:/components/VideoComponent.brs" />
+    <script type="text/brightscript" uri="VideoComponent.brs" />
     <children>
         <Video id="myVideo" width="650" height="350" translation="[1220,630]" visible="true" />
     </children>
