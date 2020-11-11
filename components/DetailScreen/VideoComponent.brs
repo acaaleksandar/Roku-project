@@ -19,19 +19,14 @@ sub setVideo() as void
         videoContent.streamformat = content.streamformat
         m.myVideo.content = videoContent
         m.myVideo.control = "play"
-        print m.myVideo.state
         m.global.ButtonComponent.callFunc("editButtonText")
-        print "jebem te bas none stopped!!!"
     else if m.myVideo.state = "playing" then
-        print "jebem te bas playing!!!"
         m.global.ButtonComponent.callFunc("editButtonText")
         m.myVideo.control = "pause"        
     else if m.myVideo.state = "paused" then
-        print "jebem te bas paused!!!"
         m.myVideo.control = "resume"
         m.global.ButtonComponent.callFunc("editButtonText")
     else if m.myVideo.state = "finished" then
-        print "jebem te bas!!!"
         m.myVideo.control = "play"
         m.global.ButtonComponent.callFunc("editButtonText")
     end if     

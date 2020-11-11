@@ -3,11 +3,11 @@ function init()
     m.contentRowList = m.top.findNode("contentRowList")
     m.dialogOnBack = m.top.findNode("dialogOnBack")
     m.contentRowList.numRows = 3
-    m.contentRowList.itemSize = [400 * 4 + 20 * 3, 213]
-    m.contentRowList.rowHeights = [213]
-    m.contentRowList.rowItemSize = [ [400, 213] ]
+    m.contentRowList.itemSize = [1600, 500]
+    m.contentRowList.rowHeights = [500]
+    m.contentRowList.rowItemSize = [ [350, 500] ]
     m.contentRowList.itemSpacing = [0, 80]
-    m.contentRowList.rowItemSpacing = [ [20, 213] ]
+    m.contentRowList.rowItemSpacing = [ [50, 500] ]
     m.contentRowList.rowLabelOffset = [ [0, 30] ]
     m.contentRowList.rowFocusAnimationStyle = "fixedFocusWrap"
     m.contentRowList.showRowLabel = [true, true]
@@ -39,8 +39,7 @@ function onRowItemSelected() as void
     row = m.contentRowList.rowItemSelected[0]
     col = m.contentRowList.rowItemSelected[1]
     m.selectedChild = m.contentRowList.content.getChild(row).getChild(col)
-    m.global.MainScene.callFunc("showScreen",m.selectedChild)
-
+    m.top.getParent().callFunc("showScreen",m.selectedChild)
 end function
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
@@ -49,14 +48,15 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     focusChild = m.contentRowList.content.getChild(row).getChild(col)
     myFocus = false
     if key = "back" and press then
-        if focusChild.title="Deep Impact" and m.dialogOnBack.hasFocus() then
-            m.contentRowList.jumpToRowItem = [0,0]
-            m.dialogOnBack.visible = false
-            myFocus = true
-            print "Dialog? Sigurno zelite da izadjete?"
-        else if focusChild.title="Deep Impact" then
+        if focusChild.title="Deep Impact" and focusChild.id = "1" then
             m.dialogOnBack.visible = true
-            m.dialogOnBack.SetFocus(true)
+            m.dialogOnBack.buttons = ["Yes", "No"]
+            m.dialogOnBack.buttonGroup.getChild(0).iconUri = ""
+            m.dialogOnBack.buttonGroup.getChild(0).focusedIconUri = ""
+            m.dialogOnBack.buttonGroup.getChild(1).iconUri = ""
+            m.dialogOnBack.buttonGroup.getChild(1).focusedIconUri = ""
+            m.dialogOnBack.ObserveField("buttonSelected","onButtonSelected")
+            m.dialogOnBack.setFocus(true)
             myFocus = true
         else
             m.contentRowList.jumpToRowItem = [0,0]
@@ -65,4 +65,19 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     end if
     return myFocus  
 end function
+
+sub onButtonSelected()
+    if m.dialogOnBack.buttonSelected = 1 then
+        setDialog()
+    else
+        setDialog()
+        m.top.closeScreen = true
+    end if
+end sub
+
+sub setDialog()
+    m.dialogOnBack.close = true
+    m.dialogOnBack.visible = false
+    m.contentRowList.setFocus(true)
+end sub
 

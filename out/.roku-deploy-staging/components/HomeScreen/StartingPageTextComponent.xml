@@ -4,6 +4,7 @@
     </interface>
     <script type="text/brightscript" uri="StartingPageTextComponent.brs" />
     <script type="text/brightscript" uri="pkg:/source/utils/utily.brs" />
+    <script type="text/brightscript" uri="pkg:/source/utils/formatVideoLength.brs" />
     <children> 
         <Label id="upBoldText" font="font:LargeBoldSystemFont" text="My Roku Channel" color="#f9f9f9" translation="[0,0]" horizAlign="left" vertAlign="top" wrap="true" width="500" />
         <Label id="title" font="font:SmallBoldSystemFont" color="#fffaed" translation = "[0,100]" width="700" wrap="true" />

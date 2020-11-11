@@ -7,7 +7,6 @@ sub init()
     m.global.addFields({
         "HomeScreen": m.homeScreen,
         "DetailScreen": m.detailScreen,
-        "MainScene": m.top
     })
     startingPageContent()
 end sub

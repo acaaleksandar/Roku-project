@@ -28,7 +28,8 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         focusFirstdBtn()
     else if key = "back" and press then
         focusFirstdBtn()
-        m.global.MainScene.callFunc("showScreen")
+        mainScene = m.top.getParent().getParent()
+        mainScene.callFunc("showScreen")
         return false
     end if
     return true 
@@ -56,7 +57,6 @@ sub editButtonText()
     buttonText = m.global.VideoComponent.callFunc("getVideoState")
     if (buttonText = "none" or buttonText = "paused" or buttonText = "stopped" or buttonText = "finished") and m.firstButtonGroup.buttonSelected = 0 then
         m.buttonPlay.text = "Pause"
-        print buttonText
     else if buttonText = "playing" then
         m.buttonPlay.text = "Play"
     else if buttonText = "finished"

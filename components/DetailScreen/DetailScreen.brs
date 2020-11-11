@@ -16,7 +16,6 @@ sub init()
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
-    print "helooooo beby";m.top.getChild(4)
     if key = "back" and press then
         m.top.getChild(4).getChild(0).control = "stop"
         m.buttonComponent.callFunc("revName")

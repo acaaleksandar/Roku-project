@@ -13,21 +13,12 @@ sub init()
 
     m.upBoldText.font.size = sizeXL
     m.title.font.size = sizeL
-End sub
-  
-function onKeyEvent(key as String, press as Boolean) as Boolean
-    result = false
-    
-    return result
-end function
+end sub
 
 sub receiveContent(event)
     content = event.getData()
     m.title.text = content.title
     m.yearLabel.text = content.ReleaseDate
     m.parentsWarned.text = content.parentalRating
-    m.durationLabel.text = content.Length
-    ' movieSec = content.Length
-    ' minutesM = movieSec/60
-    ' hoursM =
+    m.durationLabel.text = setVideoDuration(content.Length)
 end sub
