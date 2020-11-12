@@ -10,6 +10,5 @@
         <Overhang showClock="true" logoUri="#" showOptions="true"/>
         <StartingPageTextComponent id="startingPageTextComponent" translation="[150, 50]" />
         <RowList id="contentRowList" itemComponentName="MovieRowListItem" translation="[150, 300]" />
-        <Dialog id="dialogOnBack" close="false" title="Warning" message="Do you really want to exit?" optionsDialog="true" messageFont="font:LargeBoldSystemFont" visible="false" />
     </children>
 </component>

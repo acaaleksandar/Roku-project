@@ -31,8 +31,6 @@ function prepareNode(obj)
             contentRow = node.createChild("ContentNode")
             contentRow.title = category.name
             contentRow.id = category.id
-            ' contentRow.Color = "#0b0b0b"
-            ' contentRow.TextAttrs = { Color : "#28abb9", Font : "Large", HAlign : "HCenter", VAlign : "VCenter", Direction : "LeftToRight" }
         end for
         
         for each key in data.channels

@@ -10,6 +10,5 @@
         <ButtonComponent id="buttonComponent" />
         <TextUpComponent id="textUpComponent" translation="[0,0]" />
         <TextDownComponent id="textDownComponent" />
-        <VideoComponent id="videoComponent" />       
     </children>
 </component>

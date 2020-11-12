@@ -5,7 +5,7 @@ end sub
     
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if key = "back" and press then
-        m.global.ButtonComponent.callFunc("focusSecondBtn")
+        m.global.DetailScreen.getChild(1).callFunc("focusSecondBtn")
     end if
     return true  
 end function
@@ -19,16 +19,16 @@ sub setVideo() as void
         videoContent.streamformat = content.streamformat
         m.myVideo.content = videoContent
         m.myVideo.control = "play"
-        m.global.ButtonComponent.callFunc("editButtonText")
+        m.global.DetailScreen.getChild(1).callFunc("editButtonText")
     else if m.myVideo.state = "playing" then
-        m.global.ButtonComponent.callFunc("editButtonText")
+        m.global.DetailScreen.getChild(1).callFunc("editButtonText")
         m.myVideo.control = "pause"        
     else if m.myVideo.state = "paused" then
         m.myVideo.control = "resume"
-        m.global.ButtonComponent.callFunc("editButtonText")
+        m.global.DetailScreen.getChild(1).callFunc("editButtonText")
     else if m.myVideo.state = "finished" then
         m.myVideo.control = "play"
-        m.global.ButtonComponent.callFunc("editButtonText")
+        m.global.DetailScreen.getChild(1).callFunc("editButtonText")
     end if     
 end sub
 
@@ -52,6 +52,6 @@ end sub
 
 sub isVideoFinish()
     if m.myVideo.state = "finished" then
-        m.global.ButtonComponent.callFunc("editButtonText")
+        m.global.DetailScreen.getChild(1).callFunc("editButtonText")
     end if
 end sub
