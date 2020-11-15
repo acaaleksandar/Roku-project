@@ -7,4 +7,5 @@ end sub
 
 sub dataTaskResponse(obj)
     m.global.homeScreen.content = obj.getData()
+    print "nes"
 end sub

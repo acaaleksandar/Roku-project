@@ -1,4 +1,4 @@
-<component name="MovieRowListItemData" extends="ContentNode">
+<component name="DataForEachItem" extends="ContentNode">
     <interface>
         <field id="labelText" type="string" />
         <field id="posterUrl" type="string" />

@@ -1,13 +1,14 @@
 <component name="MainScene" extends="Scene" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
     <interface>
         <function name="showScreen" />
+        <function name="videoPlay" />
     </interface>
     <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
     <script type="text/brightscript" uri="pkg:/components/ServiceComponent.brs" />
-    <children>
-        <DetailScreen id="detailScreen" visible="false" />        
-        <HomeScreen id="homeScreen" translation="[0, 0]"/>
-        <VideoComponent id="videoComponent" visible="false" />
+    <children>        
+        <HomeScreen id="homeScreen" translation="[0, 0]" />
+        <DetailScreen id="detailScreen" />
+        <VideoComponent id="videoComponent" visible="false" translation="[0, 0]" />
     </children>
 </component>
 

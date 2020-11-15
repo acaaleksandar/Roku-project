@@ -1,11 +1,19 @@
-sub init()    
+sub init()
+    width="1920"      
     m.myVideo = m.top.findNode("myVideo")
     m.myVideo.observeField("state","isVideoFinish")
+    m.myVideo.width = 1920
+    m.myVideo.height = 1080
+    m.myVideo.translation = [0,0]
 end sub
     
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if key = "back" and press then
-        m.global.DetailScreen.getChild(1).callFunc("focusSecondBtn")
+        ' m.global.DetailScreen.getChild(1).callFunc("focusSecondBtn")
+        mainScene = m.top.getParent()
+        video = mainScene.getChild(2).getChild(0)
+        video.control = "stop"
+        mainScene.callFunc("videoPlay")
     end if
     return true  
 end function
@@ -19,16 +27,15 @@ sub setVideo() as void
         videoContent.streamformat = content.streamformat
         m.myVideo.content = videoContent
         m.myVideo.control = "play"
-        m.global.DetailScreen.getChild(1).callFunc("editButtonText")
-    else if m.myVideo.state = "playing" then
-        m.global.DetailScreen.getChild(1).callFunc("editButtonText")
-        m.myVideo.control = "pause"        
-    else if m.myVideo.state = "paused" then
-        m.myVideo.control = "resume"
-        m.global.DetailScreen.getChild(1).callFunc("editButtonText")
-    else if m.myVideo.state = "finished" then
-        m.myVideo.control = "play"
-        m.global.DetailScreen.getChild(1).callFunc("editButtonText")
+        mainScene = m.top.getParent()
+        mainScene.callFunc("videoPlay")
+        m.myVideo.setFocus(true)
+    ' else if m.myVideo.state = "playing" then
+    '     m.myVideo.control = "pause"        
+    ' else if m.myVideo.state = "paused" then
+    '     m.myVideo.control = "resume"
+    ' else if m.myVideo.state = "finished" then
+    '     m.myVideo.control = "play"
     end if     
 end sub
 

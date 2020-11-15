@@ -13,6 +13,15 @@ sub init()
     m.directors = m.top.findNode("directors")
     m.movieDetails = m.top.findNode("movieDetails")
     m.directorLabel = m.top.findNode("directorLabel")
+    m.downBoldText = m.top.findNode("downBoldText")
+    m.downLeftText = m.top.findNode("downLeftText")
+    m.castLabel = m.top.findNode("castLabel")
+    m.actorsName = m.top.findNode("actorsName")
+    m.genresId = m.top.findNode("genresId")
+    m.genresAv = m.top.findNode("genresAv")
+    m.directorsId = m.top.findNode("directorsId")
+    m.directorsName = m.top.findNode("directorsName")
+    m.textWraper = m.top.findNode("textWraper")
 
     sizeXL = 70
     sizeL = 25
@@ -25,6 +34,12 @@ sub init()
     m.title.font.size = sizeXL
     m.descriptionId.font.size = sizeS
     m.actorsId.font.size = sizeS
+    m.downBoldText.font.size = sizeL
+
+    for i = 0 to m.textWraper.getChildCount() - 1
+        m.textSize = m.textWraper.getChild(i)
+        m.textSize.font.size = sizeS
+    end for
 End sub
   
 function onKeyEvent(key as String, press as Boolean) as Boolean
@@ -42,4 +57,25 @@ sub receiveContent(event)
     m.genreAction.text = node.Categories[2]
     m.actorsId.text = node.Actors[0] + ", " + node.Actors[1] + ", " + node.Actors[2]
     m.directorId.text = node.Directors
+    m.downLeftText.text = node.Description
+    m.directorsName.text = node.Directors
+    m.yearLabel.text = node.ReleaseDate
+    m.parentsWarned.text = node.parentalRating
+    m.durationLabel.text = setVideoDuration(node.Length)
+    
+    for a = 0 to node.Categories.count() - 1
+        if a = 0 then
+            m.genresAv.text = node.Categories[a]
+        else
+            m.genresAv.text += ", " + node.Categories[a]
+        end if        
+    end for
+ 
+    for i = 0 to node.Actors.count() - 1
+        if i = 0 then
+            m.actorsName.text = "         " + node.Actors[i]
+        else  
+            m.actorsName.text += ", " + node.Actors[i]
+        end if
+    end for
 end sub

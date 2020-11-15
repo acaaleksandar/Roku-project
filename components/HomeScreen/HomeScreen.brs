@@ -1,53 +1,48 @@
 function init()
-    m.startingPageTextComponent = m.top.findNode("startingPageTextComponent")
-    m.contentRowList = m.top.findNode("contentRowList")
-    m.dialogOnBack = m.top.findNode("dialogOnBack")
-    m.contentRowList.numRows = 3
-    m.contentRowList.itemSize = [1600, 500]
-    m.contentRowList.rowHeights = [500]
-    m.contentRowList.rowItemSize = [ [350, 500] ]
-    m.contentRowList.itemSpacing = [0, 80]
-    m.contentRowList.rowItemSpacing = [ [50, 500] ]
-    m.contentRowList.rowLabelOffset = [ [0, 30] ]
-    m.contentRowList.rowFocusAnimationStyle = "fixedFocusWrap"
-    m.contentRowList.showRowLabel = [true, true]
-    m.contentRowList.rowLabelColor = "#fffaed"
+    m.markupGridContent = m.top.findNode("markupGridContent")
+    ' columnWidths="[350]" 
+    m.markupGridContent.numColumns = 5
+    m.markupGridContent.numRows = 5
+    m.markupGridContent.itemSize = [130,300]
+    m.markupGridContent.rowHeights = [300]
+    m.markupGridContent.rowSpacings = [50,50,50,50,50,50,50,50,50,50]
+    m.markupGridContent.columnSpacings = [ 50,50,50,50 ]
+    ' m.markupGridContent.sectionDividerSpacing = 50
+    ' m.markupGridContent.sectionDividerLeftOffset = 0 ' 0 ili skloni
     m.backgroundPoster = m.top.findNode("backgroundPoster")
     m.backgroundPoster.width = 1920
     m.backgroundPoster.height = 1080
     m.backgroundPoster.translation = [0,0]
-    m.contentRowList.visible = true
-    m.contentRowList.SetFocus(true)
-    m.contentRowList.ObserveField("rowItemFocused", "onRowItemFocused")
-    m.contentRowList.ObserveField("rowItemSelected", "onRowItemSelected") 
+    m.markupGridContent.visible = true
+    m.markupGridContent.SetFocus(true)
+    m.markupGridContent.ObserveField("itemFocused", "onItemFocused")
+    m.markupGridContent.ObserveField("itemSelected", "onItemSelected") 
 end function
 
 function receiveContent(obj)
-    m.contentRowList.content = obj.getData()    
+    m.markupGridContent.content = obj.getData()
+    print  m.markupGridContent.content
 end function
 
-function onRowItemFocused() as void
-    row = m.contentRowList.rowItemFocused[0]
-    col = m.contentRowList.rowItemFocused[1]
-    focusChild = m.contentRowList.content.getChild(row).getChild(col)
+function onItemFocused() as void
+    row = m.markupGridContent.itemFocused
+    focusChild = m.markupGridContent.content.getChild(row)
+    m.top.getParent().callFunc("showScreen",focusChild)
     m.backgroundPoster.uri = focusChild.HDBackgroundImageUrl
     m.backgroundPoster.failedBitmapUri = "pkg:/images/hollow.jpg"
-    m.startingPageTextComponent.content = focusChild
 end function
 
-function onRowItemSelected() as void
-    row = m.contentRowList.rowItemSelected[0]
-    col = m.contentRowList.rowItemSelected[1]
-    selectedChild = m.contentRowList.content.getChild(row).getChild(col)
-    m.top.getParent().callFunc("showScreen",selectedChild)
+function onItemSelected() as void
+    ' row = m.markupGridContent.itemSelected
+    ' selectedChild = m.markupGridContent.content.getChild(row).getChild(row)
+    m.global.VideoComponent.callFunc("setVideo")
 end function
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if key = "back" and press then
-        row = m.contentRowList.rowItemFocused[0]
-        col = m.contentRowList.rowItemFocused[1]
-        focusChild = m.contentRowList.content.getChild(row).getChild(col)
-        if row = 0 and col = 0 then
+        row = m.markupGridContent.itemFocused
+        focusChild = m.markupGridContent.content.getChild(row).getChild(row)
+        if row = 0 then
             m.dialog = m.top.createChild("Dialog")
             m.dialog.title = "Warning"
             m.dialog.message = "Do you really want to exit?"
@@ -62,7 +57,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             m.dialog.setFocus(true)
             return true
         else
-            m.contentRowList.jumpToRowItem = [0,0]
+            m.markupGridContent.jumpToItem = 0
             return true
         end if
     end if
@@ -81,5 +76,5 @@ end sub
 sub closeDialog()
     m.dialog.close = true
     m.dialog.visible = false
-    m.contentRowList.setFocus(true)
+    m.markupGridContent.setFocus(true)
 end sub
