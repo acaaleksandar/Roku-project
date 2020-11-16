@@ -1,0 +1,9 @@
+<component name="RightSideScreen" extends="group">
+    <interface>
+        <field id="content" type="node" onChange="onContentChange" alwaysNotify="true" />
+    </interface>
+    <script type="text/brightscript" uri="RightSideScreen.brs" />
+    <children>
+        <DetailsAboutMovie id="movieDetails" translation="[900,0]" />
+    </children>
+</component>

@@ -1,0 +1,49 @@
+<component name="DetailsAboutMovie" extends="group">
+    <interface>
+        <field id="content" type="node" onChange="receiveContent" alwaysNotify="true" />
+    </interface>
+    <script type="text/brightscript" uri="DetailsAboutMovie.brs" />
+    <script type="text/brightscript" uri="pkg:/source/utils/utily.brs" />
+    <script type="text/brightscript" uri="pkg:/source/utils/formatVideoLength.brs" />
+    <children>
+        <Rectangle id="wrapper" opacity="0.0">
+            <Label id="upBoldText" font="font:MediumBoldSystemFont" text="My Roku Channel" color="#f9f9f9" translation="[60,40]" horizAlign="left" vertAlign="top" wrap="true" width="500" />
+            <Label id="title" font="font:LargeBoldSystemFont" color="#f9f9f9" translation = "[60,70]" width="975" maxLines="1" />
+                <Animation duration="15" repeat="false" control="start" easeFunction="linear">
+                    <Vector2DFieldInterpolator key="[0.0, 0.5, 1.0]" keyValue="[ [60.0, 70.0], [150.0, 70.0], [60.0, 70.0] ]" fieldToInterp="title.translation" />
+                </Animation>
+            <LayoutGroup id="movieDetails" layoutDirection="horiz" horizAlignment="left" translation="[60,140]">
+                <Label id="yearLabel" color="#fffaed" />
+                <Label id="separator3" text=" | " color="#fffaed" />
+                <Label id="parentsWarned" color="#fffaed" />
+                <Label id="separator4" text=" |" color="#fffaed" />
+                <Label id="durationLabel" color="#fffaed"/>
+                <Label id="separator5" text=" | " color="#fffaed" />
+                <Label id="genreAdventure" color="#942dbd" />
+                <Label id="separator1" text=" | " color="#fffaed" />
+                <Label id="genreDramas" color="#942dbd" />
+                <Label id="separator2" text=" | " color="#fffaed" />
+                <Label id="genreAction" color="#942dbd" />
+            </LayoutGroup>
+            <Label id="descriptionId" font="font:MediumBoldSystemFont" color="#f9f9f9" translation="[60,180]" wrap="true" width="800" maxLines="3" />
+            <Label id="actorsId" font="font:MediumBoldSystemFont" color="#942dbd" translation="[60,270]" wrap="true" width="800" />
+            <LayoutGroup id="directorLabel" layoutDirection="horiz" horizAlignment="left" translation="[60,300]">
+                <Label id="directors" font="font:MediumBoldSystemFont" text="Directed By: " color="#fffaed" />
+                <Label id="directorId" font="font:MediumBoldSystemFont" color="#942dbd" wrap="true" width="800" />
+            </LayoutGroup>
+            <Label id="downBoldText" font="font:MediumBoldSystemFont" text="DETAILS" color="#f9f9f9" translation="[60,400]" />
+            <Rectangle id="textWraper">
+                <Label id="downLeftText" color="#fffaed" translation = "[60,450]" width="500" wrap="true" maxLines="4" />
+                <Label id="castLabel" text="Cast: " color="#fffaed" translation="[60,625]"/>
+                <Label id="actorsName" color="#942dbd" wrap="true" width="500" translation="[60,625]" />
+                <Label id="genresId" text="Genres: " color="#fffaed" translation="[60,780]" />
+                <Label id="genresAv" color="#942dbd" translation="[140,780]" wrap="true" width="555" />
+                <Label id="directorsId" text="Directors: " color="#fffaed" translation="[60,840]" />
+                <Label id="directorsName" color="#942dbd" translation="[160,840]" wrap="true" width="555" />
+            </Rectangle>
+        </Rectangle>
+        <Animation id="animation" duration="15" repeat="false" control="start" easeFunction="linear">
+            <FloatFieldInterpolator id="animationFloat" key="[0.0, 0.5, 1.0]" keyValue="[1.0, 0.0, 1.0]" fieldToInterp="wrapper.opacity" />
+        </Animation>
+    </children>
+</component>

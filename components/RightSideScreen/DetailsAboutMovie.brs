@@ -23,29 +23,24 @@ sub init()
     m.directorsName = m.top.findNode("directorsName")
     m.textWraper = m.top.findNode("textWraper")
 
-    sizeXL = 70
+    sizeXL = 45
     sizeL = 25
     sizeS = 20
-
     setChildrenFont(m.movieDetails, sizeS)
     setChildrenFont(m.directorLabel, sizeS)
-
     m.upBoldText.font.size = sizeL
     m.title.font.size = sizeXL
     m.descriptionId.font.size = sizeS
     m.actorsId.font.size = sizeS
     m.downBoldText.font.size = sizeL
-
     for i = 0 to m.textWraper.getChildCount() - 1
         m.textSize = m.textWraper.getChild(i)
         m.textSize.font.size = sizeS
     end for
 End sub
   
-function onKeyEvent(key as String, press as Boolean) as Boolean
-    result = false
-    
-    return result
+function onKeyEvent(key as String, press as Boolean) as Boolean    
+    return false
 end function
 
 sub receiveContent(event)

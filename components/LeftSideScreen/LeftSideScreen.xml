@@ -1,0 +1,12 @@
+<component name="LeftSideScreen" extends="Group">
+    <interface>
+        <field id="content" type="node" onChange="receiveContent" alwaysNotify="true" />
+        <field id="closeScreen" type="Boolean" value="false" />
+    </interface>
+    <script type="text/brightscript" uri="LeftSideScreen.brs" />
+
+    <children>
+        <Poster id="backgroundPoster" opacity="0.25" />
+        <MarkupGrid id="markupGridContent" itemComponentName="ItemForGrid" translation="[50, 40]" />
+    </children>
+</component>

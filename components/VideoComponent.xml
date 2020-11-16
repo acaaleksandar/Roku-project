@@ -2,9 +2,6 @@
     <interface>
         <field id="content" type="node" />
         <function name="setVideo" />
-        <function name="fullScreen" />
-        <function name="revertScreen" />
-        <function name="getVideoState" />
     </interface>
     <script type="text/brightscript" uri="VideoComponent.brs" />
     <children>

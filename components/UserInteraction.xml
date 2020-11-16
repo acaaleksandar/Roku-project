@@ -1,0 +1,9 @@
+<component name="UserComunication" extends="group">
+    <interface></interface>
+    <script type="text/brightscript" uri="UserComunication.brs" />
+    <children>
+        <Poster id="welcomePoster" />
+        <Label id="welcomeText" font="font:LargeBoldSystemFont" color="#f9f9f9" translation="[350,550]" />
+        <Label id="pressText" font="font:LargeBoldSystemFont" color="#fcff00" translation="[620,700]" />
+    </children>
+</component>
