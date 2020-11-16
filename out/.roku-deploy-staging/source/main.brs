@@ -8,7 +8,7 @@ sub showChannelSGScreen()
     screen.setMessagePort(m.port)
     scene = screen.CreateScene("MainScene")
     screen.show()
-    exitScene = scene.getChild(1)
+    exitScene = scene.getChild(0)
     exitScene.observeField("closeScreen", m.port)
     print exitScene
     while(true)

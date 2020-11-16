@@ -1,9 +1,9 @@
-<component name="UserComunication" extends="group">
+<component name="UserInteraction" extends="group">
     <interface></interface>
-    <script type="text/brightscript" uri="UserComunication.brs" />
+    <script type="text/brightscript" uri="UserInteraction.brs" />
     <children>
         <Poster id="welcomePoster" />
-        <Label id="welcomeText" font="font:LargeBoldSystemFont" color="#f9f9f9" translation="[350,550]" />
-        <Label id="pressText" font="font:LargeBoldSystemFont" color="#fcff00" translation="[620,700]" />
+        <Label id="welcomeText" font="font:LargeBoldSystemFont" color="#f9f9f9" translation="[350,430]" />
+        <Label id="pressText" font="font:LargeBoldSystemFont" color="#fcff00" translation="[620,580]" />
     </children>
 </component>

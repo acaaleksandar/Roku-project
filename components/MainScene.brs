@@ -11,24 +11,16 @@ sub init()
         "RightSideScreen": m.rightSideScreen,
         "VideoComponent": m.videoComponent
     })
+    checkUserStatus()
     getScreenContent()
-    checkUser = readFromRegistry("userEnter", "firstEnterInApp")
-    if checkUser = "true" then
-        m.userComunication.visible = false
-        m.leftSideScreen.visible = true
-        m.rightSideScreen.visible = true
-    end if
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
-    if key = "OK" and press and m.userComunication.isInFocusChain() then
-        ' m.videoComponent.visible = false
-        m.userComunication.visible = false
-        m.leftSideScreen.visible = true
-        m.rightSideScreen.visible = true
-        ' m.leftSideScreen.getChild(1).SetFocus(true)
-        writeToRegistry("userEnter", "true" ,"firstEnterInApp")
-        print "hello olo"
+    if key = "OK" and press then
+        if m.userComunication <> invalid then
+            m.userComunication.visible = false
+            insertUserData()
+        end if
     end if
     return true  
 end function
@@ -65,17 +57,29 @@ sub getVideoContent(videoContent)
     m.videoComponent.content = node
 end sub
 
-sub writeToRegistry(key, value, sectionName)
-    section = createObject("roRegistrySection", sectionName)
-    section.write(key, value)
-    section.flush()
+sub insertUserData()
+    m.registryTask = createObject("roSGNode", "TaskForRegistry")
+    m.registryTask.input = {action:"write", key:"userEnter", value:"true", section:"firstEnterInApp"}
+    m.registryTask.observeField("response","onRegistryResponse")
+    m.registryTask.control = "RUN"
 end sub
 
-function readFromRegistry(key, sectionName)
-    section = createObject("roRegistrySection", sectionName)
-    if section.exists(key) then
-        return section.read(key)
+sub checkUserStatus()
+    m.registryTask = createObject("roSGNode", "TaskForRegistry")
+    m.registryTask.input = {action:"checkUser", key:"userEnter", section:"firstEnterInApp"}
+    m.registryTask.observeField("response","onRegistryResponse")
+    m.registryTask.control = "RUN"
+end sub
+
+sub onRegistryResponse(response)
+    reg = response.getData()
+    m.registryTask.control = "stop"
+    if reg = "true" then
+        m.leftSideScreen.visible = true
+        m.rightSideScreen.visible = true
+        m.leftSideScreen.getChild(1).setFocus(true)
     else
-        return invalid
+        m.userComunication = m.top.createChild("UserInteraction")
+        m.userComunication.setFocus(true)
     end if
-end function
+end sub

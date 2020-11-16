@@ -4,7 +4,6 @@
         <function name="videoPlay" />
         <function name="regulateDialogVisibility" />
         <function name="inputInRegistry" />
-        <field id="userStatus" type="Boolean" value="false" />
     </interface>
     <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
     <script type="text/brightscript" uri="pkg:/components/ServiceComponent.brs" />
@@ -12,7 +11,6 @@
         <LeftSideScreen id="leftSideScreen" translation="[0, 0]" visible="false" />
         <RightSideScreen id="rightSideScreen" visible="false" />
         <VideoComponent id="videoComponent" visible="false" translation="[0, 0]" />
-        <UserComunication id="userComunication" visible="true" translation="[0, 0]" />
     </children>
 </component>
 

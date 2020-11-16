@@ -10,9 +10,8 @@ function init()
     m.backgroundPoster.height = 1080
     m.backgroundPoster.translation = [0,0]
     m.markupGridContent.visible = true
-    m.markupGridContent.SetFocus(true)
-    m.markupGridContent.ObserveField("itemFocused", "onItemFocused")
-    m.markupGridContent.ObserveField("itemSelected", "onItemSelected") 
+    m.markupGridContent.observeField("itemFocused", "onItemFocused")
+    m.markupGridContent.observeField("itemSelected", "onItemSelected") 
 end function
 
 function receiveContent(obj)
@@ -20,6 +19,9 @@ function receiveContent(obj)
 end function
 
 function onItemFocused() as void
+    if m.markupGridContent.content = invalid then
+        return
+    end if
     row = m.markupGridContent.itemFocused
     focusChild = m.markupGridContent.content.getChild(row)
     m.top.getParent().callFunc("showMovieDetails",focusChild)
@@ -55,7 +57,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             return true
         end if
     end if
-    return false  
+    return true  
 end function
 
 sub onButtonSelected()

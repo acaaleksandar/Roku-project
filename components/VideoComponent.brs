@@ -34,7 +34,6 @@ end sub
 
 sub isVideoFinish()
     if m.myVideo.state = "finished" then
-        m.myVideo.control = "replay"
-        ' m.myVideo.control = "play", na replay se cudno ponasa pa proveri sa sasom!
+        m.myVideo.control = "play"
     end if
 end sub

@@ -13,6 +13,9 @@ sub init()
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
-    
-    return false 
+    if key = "OK" and press then
+       return false
+    else
+        return true
+    end if
 end function
