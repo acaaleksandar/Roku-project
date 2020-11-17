@@ -57,7 +57,6 @@ sub receiveContent(event)
     m.yearLabel.text = node.ReleaseDate
     m.parentsWarned.text = node.parentalRating
     m.durationLabel.text = setVideoDuration(node.Length)
-    
     for a = 0 to node.Categories.count() - 1
         if a = 0 then
             m.genresAv.text = node.Categories[a]
@@ -65,7 +64,6 @@ sub receiveContent(event)
             m.genresAv.text += ", " + node.Categories[a]
         end if        
     end for
- 
     for i = 0 to node.Actors.count() - 1
         if i = 0 then
             m.actorsName.text = "         " + node.Actors[i]

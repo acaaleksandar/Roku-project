@@ -1,5 +1,4 @@
 sub init()
-    width="1920"      
     m.myVideo = m.top.findNode("myVideo")
     m.myVideo.observeField("state","isVideoFinish")
     m.myVideo.width = 1920

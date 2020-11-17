@@ -2,7 +2,6 @@ sub init()
     m.welcomeText = m.top.findNode("welcomeText")
     m.pressText = m.top.findNode("pressText")
     m.welcomePoster = m.top.findNode("welcomePoster")
-
     m.welcomeText.text = "Welcome To My Channel!"
     m.pressText.text = "Press Ok To Jump In!"
     m.welcomeText.font.size = 100
