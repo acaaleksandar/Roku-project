@@ -5,7 +5,7 @@
     <script type="text/brightscript" uri="ItemForGrid.brs" />
     <children>
         <LayoutGroup id="movieDetails" layoutDirection="vert" itemSpacings="15" vertAlignment="top" translation="[0,0]">
-            <Poster id="itemImage" width="250" height="310"/>
+            <Poster id="itemImage" width="250" height="310" />
             <Label id="itemText" maxLines="2" lineSpacing="2" wordBreakChars=" " ellipsisText="..." width="250" font="font:LargeBoldSystemFont" color="#f9f9f9" wrap="true" />
         </LayoutGroup> 
     </children>

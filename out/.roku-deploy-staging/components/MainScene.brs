@@ -59,19 +59,19 @@ end sub
 
 sub insertUserData()
     m.registryTask = createObject("roSGNode", "TaskForRegistry")
-    m.registryTask.input = {action:"write", key:"userEnter", value:"true", section:"firstEnterInApp"}
-    m.registryTask.observeField("response","onRegistryResponse")
+    m.registryTask.input = {action:"write", user:"userEnter", userStatus:"true", section:"firstEnterInApp"}
+    m.registryTask.observeField("response","userRegistry")
     m.registryTask.control = "RUN"
 end sub
 
 sub checkUserStatus()
     m.registryTask = createObject("roSGNode", "TaskForRegistry")
-    m.registryTask.input = {action:"checkUser", key:"userEnter", section:"firstEnterInApp"}
-    m.registryTask.observeField("response","onRegistryResponse")
+    m.registryTask.input = {action:"checkUser", user:"userEnter", section:"firstEnterInApp"}
+    m.registryTask.observeField("response","userRegistry")
     m.registryTask.control = "RUN"
 end sub
 
-sub onRegistryResponse(response)
+sub userRegistry(response)
     reg = response.getData()
     m.registryTask.control = "stop"
     if reg = "true" then

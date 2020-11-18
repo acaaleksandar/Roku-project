@@ -6,24 +6,24 @@ sub rigistryHandler()
     input = m.top.input
     response = "false"
     if input.action = "write" then
-        insertUserData(input.key, input.value, input.section)
+        insertUserData(input.user, input.userStatus, input.section)
         response = "true"
     else if input.action = "checkUser" then
-        response = selectUserStatus(input.key, input.section)
+        response = selectUserStatus(input.user, input.section)
     end if
     m.top.response = response
 end sub
 
-sub insertUserData(key, value, sectionName)
+sub insertUserData(user, userStatus, sectionName)
     section = createObject("roRegistrySection", sectionName)
-    section.write(key, value)
+    section.write(user, userStatus)
     section.flush()
 end sub
 
-function selectUserStatus(key, sectionName)
+function selectUserStatus(user, sectionName)
     section = createObject("roRegistrySection", sectionName)
-    if section.exists(key) then
-        return section.read(key)
+    if section.exists(user) then
+        return section.read(user)
     else
         return "false"
     end if
