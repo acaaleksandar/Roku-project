@@ -22,8 +22,8 @@ function onItemFocused() as void
     if m.markupGridContent.content = invalid then
         return
     end if
-    row = m.markupGridContent.itemFocused
-    focusChild = m.markupGridContent.content.getChild(row)
+    itemInFocused = m.markupGridContent.itemFocused
+    focusChild = m.markupGridContent.content.getChild(itemInFocused)
     m.top.getParent().callFunc("showMovieDetails",focusChild)
     m.backgroundPoster.uri = focusChild.HDBackgroundImageUrl
     m.backgroundPoster.failedBitmapUri = "pkg:/images/hollow.jpg"
@@ -35,8 +35,8 @@ end function
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if key = "back" and press then
-        row = m.markupGridContent.itemFocused
-        if row = 0 then
+        itemInFocused = m.markupGridContent.itemFocused
+        if itemInFocused = 0 then
             m.dialog = m.top.createChild("Dialog")
             m.dialog.title = "Warning"
             m.dialog.message = "Do you really want to exit?"
@@ -51,10 +51,10 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             m.dialog.setFocus(true)
             m.mainScene = m.top.getParent()
             m.mainScene.callFunc("regulateDialogVisibility")
-            return true
+            
         else
             m.markupGridContent.jumpToItem = 0
-            return true
+            
         end if
     end if
     return true  
