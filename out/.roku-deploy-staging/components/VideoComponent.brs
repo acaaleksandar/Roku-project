@@ -1,6 +1,8 @@
 sub init()    
     m.myVideo = m.top.findNode("myVideo")
+    m.videoPoster = m.top.findNode("videoPoster")
     m.myVideo.observeField("state","isVideoFinish")
+    m.videoPoster.uri = "pkg:/images/videoImage.png"
 end sub
     
 function onKeyEvent(key as String, press as Boolean) as Boolean
@@ -18,6 +20,8 @@ sub setVideo() as void
         videoContent.title = content.title
         videoContent.streamformat = content.streamformat
         m.myVideo.content = videoContent
+        m.videoPoster.visible = false
+        m.myVideo.visible = true
         m.myVideo.control = "play"
         m.global.DetailScreen.getChild(1).callFunc("editButtonText")
     else if m.myVideo.state = "playing" then
@@ -28,6 +32,8 @@ sub setVideo() as void
         m.global.DetailScreen.getChild(1).callFunc("editButtonText")
     else if m.myVideo.state = "finished" then
         m.myVideo.control = "play"
+        m.videoPoster.visible = false
+        m.myVideo.visible = true
         m.global.DetailScreen.getChild(1).callFunc("editButtonText")
     end if     
 end sub
@@ -46,12 +52,22 @@ end sub
 
 sub revertScreen()
     m.myVideo.width = 650
-    m.myVideo.height = 350
-    m.myVideo.translation = [1220,630]
+    m.myVideo.height = 680
+    m.myVideo.translation = [1220,270]
 end sub
 
 sub isVideoFinish()
     if m.myVideo.state = "finished" then
         m.global.DetailScreen.getChild(1).callFunc("editButtonText")
+        m.global.DetailScreen.getChild(1).callFunc("focusSecondBtn")
+        videoVisibility()
     end if
+    if m.myVideo.state = "stopped" then
+        videoVisibility()
+    end if
+end sub
+
+sub videoVisibility()
+    m.videoPoster.visible = true
+    m.myVideo.visible = false
 end sub

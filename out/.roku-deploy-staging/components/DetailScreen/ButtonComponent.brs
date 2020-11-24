@@ -42,19 +42,19 @@ end sub
 
 sub focusSecondBtn()
     m.secondBtn.setFocus(true)
-    m.global.VideoComponent.callFunc("revertScreen")
+    m.global.videoComponent.callFunc("revertScreen")
 end sub
 
 sub onButtonSelected()
     if m.firstButtonGroup.buttonSelected = 0 then
-        m.global.VideoComponent.callFunc("setVideo")
+        m.global.videoComponent.callFunc("setVideo")
     else if m.firstButtonGroup.buttonSelected = 1 then
-        m.global.VideoComponent.callFunc("fullScreen")
+        m.global.videoComponent.callFunc("fullScreen")
     end if
 end sub
 
 sub editButtonText()
-    buttonText = m.global.VideoComponent.callFunc("getVideoState")
+    buttonText = m.global.videoComponent.callFunc("getVideoState")
     if (buttonText = "none" or buttonText = "paused" or buttonText = "stopped" or buttonText = "finished") and m.firstButtonGroup.buttonSelected = 0 then
         m.buttonPlay.text = "Pause"
     else if buttonText = "playing" then

@@ -10,7 +10,6 @@ sub showChannelSGScreen()
     screen.show()
     exitScene = scene.getChild(1)
     exitScene.observeField("closeScreen", m.port)
-    print exitScene
     while(true)
         msg = wait(0, m.port)
         msgType = type(msg)

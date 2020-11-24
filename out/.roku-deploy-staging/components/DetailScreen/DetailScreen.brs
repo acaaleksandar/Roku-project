@@ -5,15 +5,16 @@ sub init()
     m.textDownComponent = m.top.findNode("textDownComponent")
     
     m.poster.width = 1920
-    m.poster.height = 600
+    m.poster.height = 1000
     m.poster.translation = [0,0]   
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if key = "back" and press then
-        par = m.top.getParent()
-        video = par.getChild(2).getChild(0)
+        mainScene = m.top.getParent()
+        video = mainScene.getChild(2).getChild(0)
         video.control = "stop"
+        m.global.videoComponent.callFunc("videoVisibility")
         m.buttonComponent.callFunc("revName")
     end if
     return true 
@@ -23,7 +24,7 @@ sub onContentChange(event)
     node = event.getData()
     m.buttonComponent.getChild(1).SetFocus(true)
     m.poster.uri = node.HDBackgroundImageUrl
-    m.poster.failedBitmapUri = "pkg:/images/venom.jpg"
+    m.poster.failedBitmapUri = "pkg:/images/hollow.jpg"
     m.textUpComponent.content = node
     m.textDownComponent.content = node
 end sub

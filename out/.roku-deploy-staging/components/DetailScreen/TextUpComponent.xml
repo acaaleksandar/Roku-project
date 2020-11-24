@@ -6,7 +6,7 @@
     <script type="text/brightscript" uri="pkg:/source/utils/utily.brs" />
     <children> 
         <Label id="upBoldText" font="font:MediumBoldSystemFont" text="My Roku Channel" color="#f9f9f9" translation="[60,40]" horizAlign="left" vertAlign="top" wrap="true" width="500" />
-        <Label id="title" font="font:LargeBoldSystemFont" color="#f9f9f9" translation = "[60,70]" width="1500" wrap="true" />
+        <Label id="title" font="font:LargeBoldSystemFont" color="#f9f9f9" translation = "[60,70]" width="1500" maxLines="1" />
         <LayoutGroup id="movieDetails" layoutDirection="horiz" horizAlignment="left" translation="[60,140]">
             <Label id="yearLabel" text="1998 | " color="#fffaed" />
             <Label id="parentsWarned" text="PG-13 | " color="#fffaed" />
@@ -17,9 +17,9 @@
             <Label id="separator2" text=" | " color="#fffaed" />
             <Label id="genreAction" color="#942dbd" />
         </LayoutGroup>
-        <Label id="descriptionId" font="font:MediumBoldSystemFont" color="#f9f9f9" translation="[60,180]" wrap="true" width="800" />
-        <Label id="actorsId" font="font:MediumBoldSystemFont" color="#942dbd" translation="[60,270]" wrap="true" width="800" />
-        <LayoutGroup id="directorLabel" layoutDirection="horiz" horizAlignment="left" translation="[60,300]">
+        <Label id="descriptionId" font="font:MediumBoldSystemFont" color="#f9f9f9" translation="[60,180]" wrap="true" maxLines="3" width="800" />
+        <Label id="actorsId" font="font:MediumBoldSystemFont" color="#942dbd" translation="[60,290]" wrap="true" width="800" />
+        <LayoutGroup id="directorLabel" layoutDirection="horiz" horizAlignment="left" translation="[60,320]">
             <Label id="directors" font="font:MediumBoldSystemFont" text="Directed By: " color="#fffaed" />
             <Label id="directorId" font="font:MediumBoldSystemFont" color="#942dbd" wrap="true" width="800" />
         </LayoutGroup>
